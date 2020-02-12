@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { ApiConsumer } from "../ApiContext";
 import styled from "styled-components";
-
 const Body = styled.div`
   margin: 40px;
   flex: 5 5 calc(100vw - 300px);
@@ -76,43 +75,25 @@ const Number = styled.div`
   color: #4834d4;
 `;
 
-const Overview = () => {
-  const apiData = useContext(ApiConsumer);
-  return (
-    <Body>
-      <BodyHeader>Overview</BodyHeader>
-      <Card>
-        <CarddHeader>Resumo</CarddHeader>
-        <CardSubtitle>Aqui está um resumo do seu empréstimo</CardSubtitle>
-        <Container>
-          <Table>
-            <TableContainer>Emprestimo Total</TableContainer>
-            <StatsContainer>
-              <Number>R${apiData.amountTaken}</Number>
-            </StatsContainer>
-          </Table>
-          <Table>
-            <TableContainer>Juros Total</TableContainer>
-            <StatsContainer>
-              <Number>R${apiData.totalAmountInTaxes}</Number>
-            </StatsContainer>
-          </Table>
-          <Table>
-            <TableContainer>Total Pago</TableContainer>
-            <StatsContainer>
-              <Number>R${apiData.amountPayd}</Number>
-            </StatsContainer>
-          </Table>
-          <Table>
-            <TableContainer>Juros Mensal</TableContainer>
-            <StatsContainer>
-              <Number>{apiData.monthlyInterest}%</Number>
-            </StatsContainer>
-          </Table>
-        </Container>
-      </Card>
-    </Body>
-  );
-};
-
-export default Overview;
+const EmprestimoTotal =(props) => {
+    const apiData = useContext(ApiConsumer);
+      return (
+        <Body>
+        <BodyHeader>Empréstimo</BodyHeader>
+        <Card>
+          <CarddHeader>Total</CarddHeader>
+          <CardSubtitle>Aqui está o valor total do seu empréstimo</CardSubtitle>
+          <Container>
+            <Table>
+              <TableContainer>Emprestimo Total</TableContainer>
+              <StatsContainer>
+                <Number>R$ {apiData.amountTaken}</Number>
+              </StatsContainer>
+            </Table>
+          </Container>
+        </Card>
+      </Body>
+      )
+  }
+  
+  export default EmprestimoTotal

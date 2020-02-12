@@ -76,43 +76,25 @@ const Number = styled.div`
   color: #4834d4;
 `;
 
-const Overview = () => {
-  const apiData = useContext(ApiConsumer);
-  return (
-    <Body>
-      <BodyHeader>Overview</BodyHeader>
-      <Card>
-        <CarddHeader>Resumo</CarddHeader>
-        <CardSubtitle>Aqui está um resumo do seu empréstimo</CardSubtitle>
-        <Container>
-          <Table>
-            <TableContainer>Emprestimo Total</TableContainer>
-            <StatsContainer>
-              <Number>R${apiData.amountTaken}</Number>
-            </StatsContainer>
-          </Table>
-          <Table>
-            <TableContainer>Juros Total</TableContainer>
-            <StatsContainer>
-              <Number>R${apiData.totalAmountInTaxes}</Number>
-            </StatsContainer>
-          </Table>
-          <Table>
-            <TableContainer>Total Pago</TableContainer>
-            <StatsContainer>
-              <Number>R${apiData.amountPayd}</Number>
-            </StatsContainer>
-          </Table>
-          <Table>
-            <TableContainer>Juros Mensal</TableContainer>
-            <StatsContainer>
-              <Number>{apiData.monthlyInterest}%</Number>
-            </StatsContainer>
-          </Table>
-        </Container>
-      </Card>
-    </Body>
-  );
-};
-
-export default Overview;
+const JurosMensal =(props) => {
+    const apiData = useContext(ApiConsumer);
+      return (
+        <Body>
+        <BodyHeader>Juros Mensal</BodyHeader>
+        <Card>
+          <CarddHeader>Juros Mensal</CarddHeader>
+          <CardSubtitle>Aqui está o valor do juros mensal</CardSubtitle>
+          <Container>
+            <Table>
+              <TableContainer>Juros</TableContainer>
+              <StatsContainer>
+                <Number>% {apiData.monthlyInterest}</Number>
+              </StatsContainer>
+            </Table>
+          </Container>
+        </Card>
+      </Body>
+      )
+  }
+  
+  export default JurosMensal

@@ -1,0 +1,5 @@
+export const OVERVIEW = "overview"
+export const EMPRESTIMO_TOTAL = "emprestimo_total"
+export const JUROS_TOTAL = "juros_total"
+export const TOTAL_PAGO = "total_pago"
+export const JUROS_MENSAL = "juros_mensal"
